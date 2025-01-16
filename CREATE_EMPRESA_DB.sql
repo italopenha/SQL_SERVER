@@ -105,7 +105,7 @@ CREATE TABLE TB_DETALHE_PEDIDO
 );
 GO
 INSERT INTO TB_CATEGORIA
-(CategoriaId, Descricao)
+(ID_CATEGORIA, DESCRICAO)
 VALUES
 (1,'Bebidas'),
 (2,'Condimentos'),
@@ -117,7 +117,7 @@ VALUES
 (8,'Frutos do Mar');
 GO
 INSERT INTO TB_CLIENTE
-(ClienteId, NomeCompleto, Contato, Cargo)
+(ID_CLIENTE, NOME_COMPLETO, CONTATO, CARGO)
 VALUES
 ('ALFKI','Alfreds Futterkiste',	'Maria Anders',	'Representante de Vendas'),
 ('ANATR','Ana Trujillo Emparedados y helados','Ana Trujillo','Proprietário'),
@@ -212,7 +212,7 @@ VALUES
 ('WOLZA','Wolski  Zajazd','Zbyszek Piestrzeniewicz','Proprietário');
 GO
 INSERT INTO TB_FUNCIONARIO
-(FuncionarioId, NomeCompleto, Cargo, DataNascimento, Salario)
+(ID_FUNCIONARIO, NOME_COMPLETO, CARGO, DATA_NASCIMENTO, SALARIO)
 VALUES
 (1,	'Nancy Davolio','Representante de Vendas','1968-12-08',5000.00),
 (2,	'Andrew Fuller','Vice-Presidente de Vendas','1952-02-19',10000.00),
@@ -225,7 +225,7 @@ VALUES
 (9,	'Anne Dodsworth','Representante de Vendas','1969-07-02',4000.00)
 GO
 INSERT INTO TB_FORNECEDOR
-(FornecedorId, Empresa, Contato, Cargo)
+(ID_FORNECEDOR, EMPRESA, CONTATO, CARGO)
 VALUES
 (1,	'Exotic Liquids','Charlotte Cooper','Gerente de Encomendas'),
 (2,	'New Orleans Cajun Delights','Shelley Burke','Administrador de Pedidos'),
@@ -258,7 +258,7 @@ VALUES
 (29,'Forêts d érables','Chantal Goulet','Gerente Financeiro')
 GO
 INSERT INTO TB_ENDERECO
-(ClienteId, Logradouro, Cidade, Regiao, CEP, Pais, Telefone)
+(ID_CLIENTE, LOGRADOURO, CIDADE, REGIAO, CEP, PAIS, TELEFONE)
 VALUES
 ('ALFKI','Obere Str. 57','Berlin','N/C','12209','Alemanha','030-0074321'),
 ('ANATR','Avda. de la Constitución 2222','México D.F.','N/C','05021','México','(5) 555-4729'),
@@ -353,7 +353,7 @@ VALUES
 ('WOLZA','ul. Filtrowa 68','Warszawa','N/C','01-012','Polônia','(26)642-7012');
 GO
 INSERT INTO TB_ENDERECO
-(FuncionarioId, Logradouro, Cidade, CEP, Pais, Telefone)
+(ID_FUNCIONARIO, LOGRADOURO, CIDADE, CEP, PAIS, TELEFONE)
 VALUES
 (1,'507 - 20th Ave. E.Apt. 2A','Seattle','98122','EUA','(206)555-9857'),
 (2,'908 W. Capital Way','Tacoma','98401','EUA','(206)555-9482'),
@@ -366,7 +366,7 @@ VALUES
 (9,'7 Houndstooth Rd.','London','WG27LT','Reino Unido','(71)555-4444');
 GO
 INSERT INTO TB_ENDERECO
-(FornecedorId, Logradouro, Cidade, CEP, Pais, Telefone)
+(ID_FORNECEDOR, LOGRADOURO, CIDADE, CEP, PAIS, TELEFONE)
 VALUES
 (1,'49 Gilbert St.','London','EC14SD','Reino Unido','12332124'),
 (2,'P.O. Box 78934','New Orleans','70117','EUA','1239908'),
@@ -399,7 +399,7 @@ VALUES
 (29,'148 rue Chasseur','Ste-Hyacinthe','J2S7S8','Canadá','3453343445');
 GO
 INSERT INTO TB_PEDIDO
-(NumeroPedido, ClienteId, FuncionarioId, DataPedido, DataEntrega, Frete)
+(NUMERO_PEDIDO, ID_CLIENTE, ID_FUNCIONARIO, DATA_PEDIDO, DATA_ENTREGA, FRETE)
 VALUES
 (10248,	'VINET', 2,	'1996-07-04', '1996-08-01',	32.38),
 (10249,	'TOMSP', 6,	'1996-07-05', '1996-08-16',	11.61),
@@ -1233,7 +1233,7 @@ VALUES
 (11077,	'RATTC', 1,	'1998-05-06', '1998-06-03',	8.53);
 GO
 INSERT INTO TB_PRODUTO
-(ProdutoId, Descricao, FornecedorId, CategoriaId, Preco, Unidades, Descontinuado)
+(ID_PRODUTO, DESCRICAO, ID_FORNECEDOR, ID_CATEGORIA, PRECO, UNIDADES, DESCONTINUADO)
 VALUES
 (1, 'Chai', 1, 1, 18.00, 39, 0), 
 (2, 'Chang', 1, 1, 19.00, 17, 0), 
@@ -1314,7 +1314,7 @@ VALUES
 (77, 'Original Frankfurter grüne Soße', 12, 2, 13.00, 32, 0)
 GO 
 INSERT INTO TB_DETALHE_PEDIDO
-(NumeroPedido, ProdutoId, Preco, Quantidade, Desconto)
+(NUMERO_PEDIDO, ID_PRODUTO, PRECO, QUANTIDADE, DESCONTO)
 VALUES
 (10250,	11,	14.00,	12,	0),
 (10249,	72,	34.80,	5,	0),
@@ -1560,7 +1560,7 @@ VALUES
 (10339,	4,	17.60,	10,	0);
 GO
 INSERT INTO TB_DETALHE_PEDIDO
-(NumeroPedido, ProdutoId, Preco, Quantidade, Desconto)
+(NUMERO_PEDIDO, ID_PRODUTO, PRECO, QUANTIDADE, DESCONTO)
 VALUES
 (10339,	17,	31.20,	70,	0.05),
 (10339,	62,	39.40,	28,	0),
@@ -1881,7 +1881,7 @@ VALUES
 (10458,	71,	17.20,	50,	0);
 GO
 INSERT INTO TB_DETALHE_PEDIDO
-(NumeroPedido, ProdutoId, Preco, Quantidade, Desconto)
+(NUMERO_PEDIDO, ID_PRODUTO, PRECO, QUANTIDADE, DESCONTO)
 VALUES
 (10459,	7,	24.00,	16,	0.05),
 (10459,	46,	9.60,	20,	0.05),
@@ -2249,7 +2249,7 @@ VALUES
 (10596,	75,	7.75,	30,	0.2);
 GO
 INSERT INTO TB_DETALHE_PEDIDO
-(NumeroPedido, ProdutoId, Preco, Quantidade, Desconto)
+(NUMERO_PEDIDO, ID_PRODUTO, PRECO, QUANTIDADE, DESCONTO)
 VALUES
 (10597,	24,	4.50,	35,	0.2),
 (10597,	57,	19.50,	20,	0),
